@@ -12,7 +12,7 @@ public class TetrisView{
 	}
 	
 	//Gets the KeyBoard Event and returns the correct enum value
-	public enum getUserAction(){
+	public UserAction getUserAction(){
 		/*
 		REPLACE THIS WITH JAVAFX AND KEYBOARD EVENTS LATER ON
 		*/
