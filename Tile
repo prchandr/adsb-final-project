@@ -1,6 +1,6 @@
 //it's a tile class that works
 public class Tile{
-	
+	//we can change this to boolean later if you like
 	int x;
 	
 	public Tile(){
