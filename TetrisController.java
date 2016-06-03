@@ -17,24 +17,26 @@ public class TetrisController extends Application{
   }
   
   public boolean isFinalPosition(Block b){
-  for(int i = 0; i < 5; i++){
-  if((b[i][4].isEmpty() == false){
-  if(board[b.getColumn(not implemented)][b.getRow(not implemented)+1].isEmpty==false){
-  return true;  
-  } } }
-  return false;   
+    for(int i = 0; i < 5; i++){
+      if((b[i][4].isEmpty() == false){
+        if(board[b.getColumn(not implemented)][b.getRow(not implemented)+1].isEmpty==false){
+          return true;  
+        } 
+      }
+    }
+    return false;   
   }
   
   public void runGame(Block b){
-  time = System.nanoTime();
-  while(System.nanoTime()-time < 500000000)
-  //code
-  }
-  if(b.isFinalPosition()){
-  runGame(new Block();)  
-  }
-  else{
-  runGame(b);
-  }
+    time = System.nanoTime();
+    while(System.nanoTime()-time < 500000000)
+      //code
+    }
+    if(b.isFinalPosition()){
+      runGame(new Block();)  
+    }
+    else{
+      runGame(b);
+    }
   }
 }
