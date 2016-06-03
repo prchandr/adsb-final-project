@@ -1,5 +1,6 @@
 public class Program {
   public static void main(String[] args){
-    System.out.println("L.O.L.");
+    //always properly punctuate
+    System.out.println("R.O.F.L.O.L.");
   }
 }
