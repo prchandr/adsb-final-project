@@ -8,7 +8,7 @@ public class Board {
 	public Board(){
 		width = 10;
 		height = 20;
-		board = new Tile[width][height];
+		board = new Tile[height+1][width];
 	}
 
 	public Board(int w, int h){
@@ -40,5 +40,14 @@ public class Board {
 			output += "\n";
 		}
 		return output;
+	}
+	
+	public boolean canPlay(){
+		for(Tile t: board[height+1]){
+			if(!t.isEmpty()){
+				return false;
+			}
+		}
+		return true;
 	}
 }
