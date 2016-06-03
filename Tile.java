@@ -1,30 +1,36 @@
 //it's a tile class that works
 public class Tile{
-	//we can change this to boolean later if you like
-	int x;
+	private int x;
 	
 	public Tile(){
-	x = 0;}
+	   x = 0;
+	}
 	
 	public Tile(int num){
-	x = num;}
+	   x = num;
+	}
 	
 	public boolean isEmpty(){
-	if(x == 0)
-	{return true;}
-	return false;}
+	   if(x == 0){
+	      return true;
+	   }
+	return false;
+	}
 	
 	public int getValue(){
-	return x;}
+	   return x;
+	}
 	
 	public void setValue(int num){
-	x = num;}
+	   x = num;
+	}
 	
 	public String toString(){
-	return x+"";}
+	   return x+"";
+	}
 	
 	public Tile clone(){
-	Tile clone = new Tile(x);
-	return clone;}	
-	
+	   Tile clone = new Tile(x);
+	   return clone;
+	}	
 }
