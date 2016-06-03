@@ -1,32 +1,35 @@
 //it's a tile class that works
 public class Tile{
-	private int x;
+	private int value;
 	
 	public Tile(){
-	   x = 0;
+	   value = -1;
 	}
 	
 	public Tile(int num){
-	   x = num;
+	   value = num;
 	}
 	
 	public boolean isEmpty(){
-	   if(x == 0){
+	   if(value == -1){
 	      return true;
 	   }
-	return false;
+	   return false;
 	}
 	
 	public int getValue(){
-	   return x;
+	   return value;
 	}
 	
 	public void setValue(int num){
-	   x = num;
+	   value = num;
 	}
 	
 	public String toString(){
-	   return x+"";
+	   if(value==-1){
+	   	return "_";
+	   }
+	   return ""+x;
 	}
 	
 	public Tile clone(){
