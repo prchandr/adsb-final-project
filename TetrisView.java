@@ -11,11 +11,33 @@ public class TetrisView{
 		board = b;
 	}
 	
-	public String getUserAction(){
-		Scanner reader = new Scanner(System.in);
-		System.out.println("Enter whatever: ");
-		String response = reader.next();
-		return response;
+	//Gets the KeyBoard Event and returns the correct enum value
+	public enum getUserAction(){
+		/*
+		REPLACE THIS WITH JAVAFX AND KEYBOARD EVENTS LATER ON
+		*/
+		Scanner in = new Scanner();
+		System.out.print("Enter [W]Up, [A]Left, [S]Down, [D]Right, [ESC]Quit: ")
+		String result = in.nextLine();
+		
+		switch result{
+			case "W":
+				return UP;
+			case "A":
+				return LEFT;
+			case "S":
+				return DOWN;
+			case "D":
+				return RIGHT;
+			case default:
+				return INVALID;
+		}
 	}
 	
+	public void updateDisplay(){
+		/*
+		REPLACE THIS WITH JAVAFX AND KEYBOARD EVENTS LATER ON
+		*/
+		System.out.println(board.toString());	
+	}
 }
