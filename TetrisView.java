@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class TetrisView{
-	
-	Board board;
+	private Board board;
 	
 	public TetrisView(Board b){
 		board = b;
