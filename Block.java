@@ -1,7 +1,7 @@
 
 import java.util.Random;
 
-public class block{
+public class Block{
 	private Random rng = new Random();
 	private Tile blank = new Tile();
 	private Tile tile = new Tile(1);
@@ -11,65 +11,66 @@ public class block{
 	
 	public block(){
 		int randomNumber = rng.nextInt(19)+1;
-		Tile[][] Block;
+		Tile[][] block;
 		 if(randomNumber == 1){
-			Block = block1();
+			block = block1();
 		}else if(randomNumber == 2){
-			Block = block2();
+			block = block2();
 		}else if(randomNumber == 3){
-			Block = block3();
+			block = block3();
 		}else if(randomNumber == 4){
-			Block = block4();
+			block = block4();
 		}else if(randomNumber == 5){
-			Block = block5();
+			block = block5();
 		}else if(randomNumber == 6){
-			Block = block6();
+			block = block6();
 		}else if(randomNumber == 7){
-			Block = block7();
+			block = block7();
 		}else if(randomNumber == 8){
-			Block = block8();
+			block = block8();
 		}else if(randomNumber == 9){
-			Block = block9();
+			block = block9();
 		}else if(randomNumber == 10){
-			Block = block10();
+			block = block10();
 		}else if(randomNumber == 11){
-			Block = block11();
+			block = block11();
 		}else if(randomNumber == 12){
-			Block = block12();
+			block = block12();
 		}else if(randomNumber == 13){
-			Block = block13();
+			block = block13();
 		}else if(randomNumber == 14){
-			Block = block14();
+			block = block14();
 		}else if(randomNumber == 15){
-			Block = block15();
+			block = block15();
 		}else if(randomNumber == 16){
-			Block = block16();
+			block = block16();
 		}else if(randomNumber == 17){
-			Block = block17();
+			block = block17();
 		}else if(randomNumber == 18){
-			Block = block18();
+			block = block18();
 		}
 	}
 	/**
+	-----
+	-----
+	-----
 	--***
 	-**--
-	-----
-	-----
-	-----
 	*/
 	public Tile[][] block1(){
 		Tile[][] block1 = new Tile[][]{
-			{blank, blank, tile, tile,tile},
-			{blank, tile, tile, blank, blank},
 			{blank, blank, blank, blank, blank},
 			{blank, blank, blank, blank, blank},
-			{blank, blank, blank, blank, blank}
+			{blank, blank, blank, blank, blank},
+			{blank, blank, tile, tile, tile},
+			{blank, tile, tile, blank, blank}
 			};
 		return block1;
 		
 	}
 	
 	public Tile[][] block2(){
+		
 		
 	}
 	public Tile[][] block3(){
@@ -115,10 +116,24 @@ public class block{
 
 	}
 	public Tile[][] block17(){
-
+	Tile[][] block17 = new Tile[][]{
+			{blank, blank, blank, blank, blank},
+			{blank, blank, blank, blank, blank},
+			{blank, blank, blank, blank, blank},
+			{blank, tile, tile, tile, tile},
+			{blank, blank, tile, blank, blank}
+			};
+		return block17;
 	}
 	public Tile[][] block18(){
-
+	Tile[][] block18 = new Tile[][]{
+			{blank, blank, blank, blank, blank},
+			{blank, blank, blank, blank, blank},
+			{blank, blank, blank, blank, tile},
+			{blank, blank, blank, tile, tile},
+			{blank, blank, blank, tile, tile}
+			};
+		return block18;
 	}
 
 }
