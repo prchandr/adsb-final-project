@@ -4,10 +4,13 @@ Keeps the game running.
 import javafx.animation.AnimationTimer;
 
 
-public class TetrisController extends Application{
+public class TetrisController{
   private Board board;
   private TetrisView view;
   private long time;
+  private int score;
+  private int rowsCleared;
+  private int level;
   
   public TetrisController(){
     board = new Board();
@@ -33,13 +36,21 @@ public class TetrisController extends Application{
   public void runGame(){
     final long startTime = System.nanoTime();
     int ticks = 0;
+    score = 0;
+    rowsCleared = 0;
+    level = 1;
     
     if(board.canPlay()){
        new AnimationTimer(){
          public void handle(long currentTime){
-           if(ticks%500==0||tw.getUserAction()==DOWN){
-             //Move block down because of gravity
+           UserAction action = tw.getUserAction();
+           if(ticks%500==0||action==DOWN){
+             //Move block down one height because of gravity
+             if(action==DOWN){
+               score+=1;
+             }
            }
+           int tempRows = rowsCleared;
            boolean fullRow;
            for(int i = 0; i<height; i++){
               fullRow = true;
@@ -48,11 +59,17 @@ public class TetrisController extends Application{
                   fullRow = false;
                 }
               }
+              tempRows = rowsCleared;
               if(fullRow){
+                score+=100;
+                rowsCleared++;
                 for(int j = i; j<height; j++){
                   board[j] = board[j+1].clone();
                 }
                 i--;
+              }
+              if(rowsCleared%10==0&&tempRows!=rowsCleared){
+                level++;
               }
            }
            
