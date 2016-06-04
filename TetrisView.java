@@ -1,7 +1,12 @@
+import javafx.application.Application;
+
+//DELETE THIS AFTER
 import java.util.Scanner;
 
-public class TetrisView{
+public class TetrisView extends Application{
 	private Board board;
+	private BlockFactory bf;
+	private ArrayList<Block> blockList = new ArrayList<Block>();
 	
 	public TetrisView(Board b){
 		board = b;
@@ -39,5 +44,14 @@ public class TetrisView{
 		REPLACE THIS WITH JAVAFX AND KEYBOARD EVENTS LATER ON
 		*/
 		System.out.println(board.toString());	
+	}
+	
+	public void start(Stage primaryStage) throws Exception{
+		
+	}
+	
+	
+	public static void main(String[] args){
+		launch(args);
 	}
 }
