@@ -1,19 +1,22 @@
 public class Block {
 	private int x;     
 	private int y;
+	private int[][] shape;
 	private Board board;
 	private Color color;
+	private boolean isFalling;
 	
-	public Piece(int shape[][], Board b){
+	public Piece(int[][] s, Board b, Color c){
 		x = b.getWidth()/2;
 		y = b.getHeight()+1;
 		board = b;
+		shape = s;
 		updateLocation();
 	}
 	
 	public void updateLocation() {
-		setLocation(Tetris.SQUARE_SIZE*currentX,
-					(int) (Tetris.SQUARE_SIZE*currentY));
+		isFalling = true;
+		
 	}
 	
 	public void moveDown() {
@@ -27,16 +30,22 @@ public class Block {
 	}
 	
 	public void moveRight() {
-		if(x<)
+		if(x<board.getWidth()-1){
+			x+=1;
+		}
 	}
 	
-	public void rotateClockwise() {
+	public void rotate() {
+		
 	}
 	
-	public void rotateCounterclockwise() {
-	}
-	
-	public void stop(){
+	public Board stop(){
+		isFalling = false;
+		for(int[] row: shape){
+			for(int i: row){
+				//Place each tile in the block on the board
+			}
+		}
 		
 	}
 }
