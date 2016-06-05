@@ -3,10 +3,9 @@ public class Block {
 	private int y;
 	private int[][] shape;
 	private Board board;
-	private Color color;
 	private boolean isFalling = false;
 	
-	public Board(int[][] s, Board b, Color c){
+	public Board(int[][] s, Board b){
 		x = b.getWidth()/2;
 		y = b.getHeight()+1;
 		board = b;
