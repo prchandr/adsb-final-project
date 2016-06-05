@@ -15,8 +15,8 @@ public class BlockFactory{
      {1, 1, 0}};
      
   public static final int[][] R1 = 
-    {{1, 1, 1}
-     {1, 0, 0}
+    {{1, 1, 1},
+     {1, 0, 0},
      {1, 0, 0}};
      
   public static final int[][] R2 = 
