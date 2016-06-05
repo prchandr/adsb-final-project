@@ -1,6 +1,7 @@
 /*
 Keeps the game running. 
 */
+import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
 
 public class TetrisController{
@@ -15,7 +16,7 @@ public class TetrisController{
   
   public TetrisController(){
     board = new Board();
-    tw = new TetrisView();
+    view = new TetrisView(board);
   }
   
   public TetrisController(Board b, TetrisView tw){
