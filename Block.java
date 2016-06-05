@@ -5,7 +5,7 @@ public class Block {
 	private Board board;
 	private boolean isFalling = false;
 	
-	public Board(int[][] s, Board b){
+	public Block(int[][] s, Board b){
 		x = b.getWidth()/2;
 		y = b.getHeight()+1;
 		board = b;
