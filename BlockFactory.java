@@ -127,17 +127,11 @@ public class BlockFactory{
   
   public static Block createPentrisBlock(Board b){
     int[][] newBlock = PENTRIS[(int)(Math.random()*PENTRIS.length)];
-    
-    //INSERT A RANDOM THING TO CHANGE ORIENTATION
-    
     return new Block(newBlock, board);
   }
   
   public static Block createTetrisBlock(Board b){
     int[][] newBlock = PENTRIS[(int)(Math.random()*PENTRIS.length)];
-    
-    //INSERT A RANDOM THING TO CHANGE ORIENTATION
-    
     return new Block(newBlock, b);
   }
 }
