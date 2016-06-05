@@ -29,11 +29,11 @@ public class Tile{
 	   if(value==-1){
 	   	return "_";
 	   }
-	   return ""+x;
+	   return ""+value;
 	}
 	
 	public Tile clone(){
-	   Tile clone = new Tile(x);
+	   Tile clone = new Tile(value);
 	   return clone;
 	}	
 }
