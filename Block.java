@@ -6,7 +6,7 @@ public class Block {
 	private Color color;
 	private boolean isFalling = false;
 	
-	public Piece(int[][] s, Board b, Color c){
+	public Board(int[][] s, Board b, Color c){
 		x = b.getWidth()/2;
 		y = b.getHeight()+1;
 		board = b;
