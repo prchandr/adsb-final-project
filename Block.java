@@ -10,6 +10,9 @@ public class Block {
 		y = b.getHeight()+1;
 		board = b;
 		shape = s;
+	}
+	
+	public void startFalling(){
 		isFalling = true;
 	}
 	
@@ -43,10 +46,13 @@ public class Block {
 	
 	public Board stop(){
 		isFalling = false;
-		for(int[] row: shape){
-			for(int i: row){
-				//Place each tile in the block on the board
+		for(int i = 0; i<shape.length; i++){
+			for(int j = 0; j<shape[i].length; j++){
+				if(i==1){
+					board[x+j][y+x].setValue(1);
+				}
 			}
 		}
+		return board;
 	}
 }
