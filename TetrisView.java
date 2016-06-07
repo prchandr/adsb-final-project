@@ -34,7 +34,7 @@ public class TetrisView extends Application{
 				return DOWN;
 			case "D":
 				return RIGHT;
-			case default:
+			default:
 				return INVALID;
 		}
 	}
@@ -47,7 +47,15 @@ public class TetrisView extends Application{
 	}
 	
 	public void start(Stage primaryStage) throws Exception{
+		primaryStage.setTitle("Pentris!");
+		primaryStage.setMinWidth(200);
+		primaryStage.setMinHeight(400);
 		
+		
+		
+		
+		
+		primaryStage.show();
 	}
 	
 	
