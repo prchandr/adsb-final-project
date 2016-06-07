@@ -72,6 +72,16 @@ public class Block {
 	
 	public String toString(){
 		String result = "";
-		for(int i:)
+		for(int[] i: shape){
+			for(int j: i){
+				if(j==1){
+					results+= "1" + "\t";
+				}
+				else{
+					results+= " " + "\t";
+				}
+			}
+		}
+		return results;
 	}
 }
