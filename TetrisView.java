@@ -42,6 +42,7 @@ public class TetrisView extends Application{
 	public void updateDisplay(){
 		/*
 		REPLACE THIS WITH JAVAFX AND KEYBOARD EVENTS LATER ON
+		we can use TilePane to get a visual representation of the board
 		*/
 		System.out.println(board.toString());	
 	}
