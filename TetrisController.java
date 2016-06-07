@@ -61,12 +61,19 @@ public class TetrisController{
            }
            Block mainBlock = blockList.get(0);
            
-           //Sees if mainblock is finished falling then stops falling. Removes block from blockList and updates board with new board
            
            
            
            //Determines if block is going down
            if(ticks%fallSpeed==0||action==DOWN){
+             //Sees if mainblock is finished falling then stops falling. Removes block from blockList and updates board with new board
+             if(mainBlock.isColliding(board)){
+              board = mainBlock.stop(board);
+              blockList.remove(0);
+              blockList.get(0).startFalling();
+            }
+             
+             
              mainBlock.moveDown();
              
              //If the player wants to get down
@@ -113,7 +120,7 @@ public class TetrisController{
               case RIGHT:
                 mainBlock.moveRight();
                 break;
-              case default:
+              default:
                 break;
            }
            
