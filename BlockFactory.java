@@ -1,13 +1,30 @@
 public class BlockFactory{
+  
   //5 Piece Shapes
+  
+  //Several of the shapes form serpentine or S/Z shapes
+  //when one of these rotates, it becomes one of the others
+  //might be worth looking into in the block turning methods.
+  
   public static final int[][] S1 = 
     {{0, 1, 1, 1},
-     {1, 1, 0, 0}};
+     {1, 1, 0, 0}};  
      
-  
   public static final int[][] S2 =
     {{1, 1, 1, 0},
      {0, 0, 1, 1}};
+  
+  //Idk if these are symmetrical
+  
+  public static final int[][] Z1 = 
+    {{1, 0, 0},
+     {1, 1, 1},
+     {0, 0, 1}};
+     
+  public static final int[][] Z2 = 
+    {{0, 0, 1},
+     {1, 1, 1},
+     {1, 0, 0}};   
      
   public static final int[][] W =
     {{0, 0, 1},
@@ -45,16 +62,6 @@ public class BlockFactory{
   public static final int[][] L2 =
     {{1, 1, 1, 1},
      {1, 0, 0 ,0}};
-     
-  public static final int[][] Z1 = 
-    {{1, 0, 0},
-     {1, 1, 1},
-     {0, 0, 1}};
-     
-  public static final int[][] Z2 = 
-    {{0, 0, 1},
-     {1, 1, 1},
-     {1, 0, 0}};
      
   public static final int[][] T1 = 
     {{1, 0, 0},
