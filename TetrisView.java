@@ -52,7 +52,14 @@ public class TetrisView extends Application{
 		primaryStage.setMinWidth(200);
 		primaryStage.setMinHeight(400);
 		
-		
+		TilePane tile = new TilePane(Orientation.VERTICAL);
+    		tile.setTileAlignment(Pos.CENTER_LEFT);
+    		if(user's input > 0 && user's input < 100){
+    		tile.setPrefRows(user's input);
+    		tile.setPrefColumns(user's input);
+		for (int i = 0; i < 50; i++) {
+        	tile.getChildren().add(our blocks);}]
+    }
 		
 		
 		
