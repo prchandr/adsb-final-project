@@ -1,21 +1,29 @@
 package net.mrpaul.ads.QM020.tetris;
 
+import java.util.Arrays;
+
 public class Board {
 	private Tile[][] board;
-	private int width = 10;
-	private int height = 20;
+	private int width;
+	private int height;
 
 	public Board(){
 		width = 10;
 		height = 20;
-		board = new Tile[height+1][width];
+		board = new Tile[height+5][width];
+		for(Tile[] tArray: board){
+			Arrays.fill(tArray, new Tile());
+		}
 	}
 
 	public Board(int w, int h){
 		if(w<10&&h<100&&w>5&&h>10){
 			width = w;
 			height = h;
-			board = new Tile[w][h];
+			board = new Tile[h+5][w];
+		}
+		for(Tile[] tArray: board){
+			Arrays.fill(tArray, new Tile());
 		}
 	}
 
@@ -43,11 +51,12 @@ public class Board {
 	}
 	
 	public boolean canPlay(){
-		for(Tile t: board[height+1]){
+		for(Tile t: board[height]){
 			if(!t.isEmpty()){
 				return false;
 			}
 		}
+		
 		return true;
 	}
 	
