@@ -51,14 +51,19 @@ public class TetrisView extends Application{
 		primaryStage.setTitle("Pentris!");
 		primaryStage.setMinWidth(200);
 		primaryStage.setMinHeight(400);
-		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Board Width?");
+		int width = Scanner.next();
+		System.out.println("Board Length?");
+		int length = Scanner.next();
 		TilePane tile = new TilePane(Orientation.VERTICAL);
     		tile.setTileAlignment(Pos.CENTER_LEFT);
-    		if(user's input > 0 && user's input < 100){
-    		tile.setPrefRows(user's input);
-    		tile.setPrefColumns(user's input);
+    		if(width > 0 && width < 100){
+    		tile.setPrefRows(width);}
+    		if(length > 0 && length < 100){
+    		tile.setPrefColumns(length);}
 		for (int i = 0; i < 50; i++) {
-        	tile.getChildren().add(our blocks);}]
+        	tile.getChildren().add(bf);}
     }
 		
 		
