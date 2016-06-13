@@ -3,6 +3,7 @@ public class Block {
 	private int y;
 	private int[][] shape;
 	private boolean isFalling = false;
+	private Board b1 = new Board();
 	
 	public Block(int[][] s, Board b){
 		x = b.getWidth()/2;
@@ -39,8 +40,21 @@ public class Block {
         			 newShape[i][j] = shape[j][i];
         		}
 		}
-		shape = newShape;
+		if(newShape.canRotate(b1){
+		shape = newShape;}
        }
+       
+       public boolean canRotate(Board b) {
+       		for(int i = 0; i < arr[0].length; i++){
+       			for(int j = arr.length-1; j >= 0; j--){
+       				if(b[i][j].isEmpty()==false){
+       					return false;
+       				}
+       			}
+       		}
+       		return true;
+       }
+       
        public boolean isColliding(Board b){
        		for(int i = 0; i<shape.length; i++){
        			for(int j = 0; j<shape[0].length; j++){
