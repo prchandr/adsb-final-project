@@ -45,9 +45,9 @@ public class Block {
        }
        
        public boolean canRotate(Board b) {
-       		for(int i = 0; i < arr[0].length; i++){
-       			for(int j = arr.length-1; j >= 0; j--){
-       				if(b[i][j].isEmpty()==false){
+       		for(int i = 0; i < shape[0].length; i++){
+       			for(int j = shape.length-1; j >= 0; j--){
+       				if(b.getBoard()[i][j].isEmpty()==false){
        					return false;
        				}
        			}
