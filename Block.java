@@ -1,9 +1,14 @@
+package net.mrpaul.ads.QM200.may;
+
 public class Block {
 	private int x;     
 	private int y;
 	private int[][] shape;
 	private boolean isFalling = false;
 	private Board b1 = new Board();
+	
+	public static void main(String[] args){
+	}
 	
 	public Block(int[][] s, Board b){
 		x = b.getWidth()/2;
@@ -21,7 +26,7 @@ public class Block {
 		}
 	}
 				
-	public void moveLeft(Board board) {
+	public void moveLeft() {
 		if(x>0){
 			x-=1;
 		}
@@ -35,19 +40,19 @@ public class Block {
 	
 	public void rotate() {
 		int[][] newShape = new int[shape[0].length][shape.length];
-		for(int i=0; i<arr[0].length; i++){
-        		for(int j=arr.length-1; j>=0; j--){
+		for(int i=0; i<shape[0].length; i++){
+        		for(int j=shape.length-1; j>=0; j--){
         			 newShape[i][j] = shape[j][i];
         		}
 		}
-		if(newShape.canRotate(b1){
+		if(canRotate(newShape)==true){
 		shape = newShape;}
        }
        
-       public boolean canRotate(Board b) {
-       		for(int i = 0; i < shape[0].length; i++){
-       			for(int j = shape.length-1; j >= 0; j--){
-       				if(b.getBoard()[i][j].isEmpty()==false){
+       public boolean canRotate(int[][] s) {
+       		for(int i = 0; i < s[0].length; i++){
+       			for(int j = s.length-1; j >= 0; j--){
+       				if(b1.getTile(i, j).isEmpty()==false){
        					return false;
        				}
        			}
@@ -89,13 +94,13 @@ public class Block {
 		for(int[] i: shape){
 			for(int j: i){
 				if(j==1){
-					results+= "1" + "\t";
+					result+= "1" + "\t";
 				}
 				else{
-					results+= " " + "\t";
+					result+= " " + "\t";
 				}
 			}
 		}
-		return results;
+		return result;
 	}
 }
