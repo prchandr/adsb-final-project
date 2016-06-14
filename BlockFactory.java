@@ -1,3 +1,5 @@
+package net.mrpaul.ads.QM200.may;
+
 public class BlockFactory{
   
   //5 Piece Shapes
@@ -6,6 +8,9 @@ public class BlockFactory{
   //when one of these rotates, it becomes one of the others
   //might be worth looking into in the block turning methods.
   
+	public static void main(String[] args){
+	}
+	
   public static final int[][] S1 = 
     {{0, 1, 1, 1},
      {1, 1, 0, 0}};  
@@ -134,7 +139,7 @@ public class BlockFactory{
   
   public static Block createPentrisBlock(Board b){
     int[][] newBlock = PENTRIS[(int)(Math.random()*PENTRIS.length)];
-    return new Block(newBlock, board);
+    return new Block(newBlock, b);
   }
   
   public static Block createTetrisBlock(Board b){
