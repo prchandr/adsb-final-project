@@ -1,6 +1,11 @@
+package net.mrpaul.ads.QM200.may;
+
 //it's a tile class that works
 public class Tile{
 	private int value;
+	
+	public static void main(String[] args){
+	}
 	
 	public Tile(){
 	   value = -1;
