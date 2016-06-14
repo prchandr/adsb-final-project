@@ -1,6 +1,10 @@
-package net.mrpaul.ads.QM020.tetris;
+package net.mrpaul.ads.QM200.may;
 
 public class Board {
+	
+	public static void main(String[] args){
+	}
+	
 	private Tile[][] board;
 	private int width = 10;
 	private int height = 20;
@@ -19,6 +23,10 @@ public class Board {
 		}
 	}
 
+	public Tile getTile(int i, int j){
+		return board[i][j];
+	}
+	
 	public int getWidth(){
 		return width;
 	}
@@ -43,15 +51,15 @@ public class Board {
 	}
 	
 	public boolean canPlay(){
-		for(Tile t: board[height+1]){
-			if(!t.isEmpty()){
+		for(Tile t: board[height-1]){
+			if(t.isEmpty()==false){
 				return false;
 			}
 		}
 		return true;
 	}
-	
-	public Tile getTile(int x, int y){
-		return board[y][x];
+
+	public void setTile(int i, int j, Tile tile) {
+		board[i][j] = tile;
 	}
 }
