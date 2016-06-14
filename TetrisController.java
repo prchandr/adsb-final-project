@@ -1,8 +1,10 @@
+
 /*
 Keeps the game running. 
 */
 import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
+import net.mrpaul.ads.QM200.may.TetrisView.UserAction;
 
 public class TetrisController{
   private Board board;
@@ -13,6 +15,11 @@ public class TetrisController{
   private ArrayList<Block> blockList;
   private int numBlocks;
   private int fallSpeed;
+  private UserAction action;
+  private int ticks;
+  
+  public static void main(String[] args){
+	}
   
   public TetrisController(){
     board = new Board();
@@ -24,7 +31,7 @@ public class TetrisController{
     view = tw;
   }
   
-  public Block[] getBlockList(){
+  public ArrayList<Block> getBlockList(){
     return blockList;
   }
   
@@ -35,11 +42,11 @@ public class TetrisController{
   
   public void runGame(){
     final long startTime = System.nanoTime();
-    int ticks = 0;
+    ticks = 0;
     score = 0;
     rowsCleared = 0;
     level = 1;
-    blockList = new ArrayList<Block>();
+    ArrayList<Block> blockList = new ArrayList<Block>();
     numBlocks = 4;
     fallSpeed = 500;
     
@@ -48,7 +55,7 @@ public class TetrisController{
        new AnimationTimer(){
          public void handle(long currentTime){
            //Gets action from viewer
-           UserAction action = tw.getUserAction();
+           action = view.getUserAction();
            
            //Updates the number of blocks visible to the player
            numBlocks = 4-level/5;
@@ -62,10 +69,8 @@ public class TetrisController{
            Block mainBlock = blockList.get(0);
            
            
-           
-           
            //Determines if block is going down
-           if(ticks%fallSpeed==0||action==DOWN){
+           if(ticks%fallSpeed==0||action==UserAction.DOWN){
              //Sees if mainblock is finished falling then stops falling. Removes block from blockList and updates board with new board
              if(mainBlock.isColliding(board)){
               board = mainBlock.stop(board);
@@ -77,7 +82,7 @@ public class TetrisController{
              mainBlock.moveDown();
              
              //If the player wants to get down
-             if(action==DOWN){
+             if(action==UserAction.DOWN){
                score+=1;
              }
            }
@@ -85,12 +90,18 @@ public class TetrisController{
            //Checks if any row has been cleared and changes score, level, and rowsCleared appropriately
            int tempRows = rowsCleared;
            boolean fullRow;
-           for(int i = 0; i<height; i++){
+           for(int i = 0; i < board.getHeight(); i++){
               fullRow = true;
-              for(Tile t: board[i]){
+              Tile[] tileArray = new Tile[]{};
+              for(int j = 0; j < board.getWidth(); j++){
+              tileArray[j] = board.getTile(i,j);;}
+              for(Tile t: tileArray){
                 if(t.isEmpty()){
                   fullRow = false;
                 }
+              }
+              for(int k = 0; k < board.getWidth(); k++){
+            	  board.setTile(i, k, tileArray[k]);
               }
               tempRows = rowsCleared;
               if(fullRow){
@@ -100,8 +111,9 @@ public class TetrisController{
                 if(fallSpeed<50){
                   fallSpeed = 50;
                 }
-                for(int j = i; j<height; j++){
-                  board[j] = board[j+1].clone();
+                for(int j = i; j<board.getHeight(); j++){
+                  Tile t = board.getTile(i, j+1).clone();
+                  board.setTile(i, j, t);
                 }
                 i--;
               }
@@ -109,8 +121,10 @@ public class TetrisController{
                 level++;
               }
            }
+          
+           
            //Controls the actions
-            switch action{
+            switch(action){
               case UP:
                 mainBlock.rotate();
                 break; 
@@ -118,7 +132,7 @@ public class TetrisController{
                 mainBlock.moveLeft();
                 break;
               case RIGHT:
-                mainBlock.moveRight();
+                mainBlock.moveRight(board);
                 break;
               default:
                 break;
@@ -126,7 +140,7 @@ public class TetrisController{
            
            ticks++;
          }
-       }.start();
+       };
     }
   }
 }
