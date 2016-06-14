@@ -1,9 +1,19 @@
-public class TetrisView extends Application{
+package net.mrpaul.ads.QM200.may;
+
+import java.io.IOException;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class View extends Application{
 	public void start(Stage primaryStage) throws IOException{
 		Stage window = new Stage();
 		window = primaryStage;
 		window.setTitle("Tetris");
 	
+		
 		VBox vbox = new VBox();
 		
         Scene scene = new Scene(vbox, 790, 500);
@@ -11,5 +21,9 @@ public class TetrisView extends Application{
         window.setScene(scene);
         window.show();
 	}
+	
+	public static void main(String[] args){
+	}
+
 	
 }
