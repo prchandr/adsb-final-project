@@ -1,3 +1,4 @@
+package net.mrpaul.ads.QM200.may;
 
 /*
 Keeps the game running. 
@@ -38,7 +39,6 @@ public class TetrisController{
   public int getScore(){
     return score;
   }
-  
   
   public void runGame(){
     final long startTime = System.nanoTime();
