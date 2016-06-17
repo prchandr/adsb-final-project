@@ -1,3 +1,5 @@
+package net.mrpaul.ads.QM020.tetris;
+
 public enum UserAction {
-	LEFT, RIGHT, DOWN, RESET, PAUSE, EXIT, INVALID
+	UP, LEFT, RIGHT, DOWN, EXIT, JUMP, INVALID
 }

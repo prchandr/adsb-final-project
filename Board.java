@@ -1,32 +1,41 @@
-package net.mrpaul.ads.QM200.may;
+package net.mrpaul.ads.QM020.tetris;
+
 
 public class Board {
-	
-	public static void main(String[] args){
-	}
-	
 	private Tile[][] board;
-	private int width = 10;
-	private int height = 20;
+	private int width;
+	private int height;
 
 	public Board(){
 		width = 10;
 		height = 20;
-		board = new Tile[height+1][width];
+		board = new Tile[height+5][width];
+		for(int i = 0; i<board.length; i++){
+			for(int j = 0; j<board[0].length; j++){
+				board[i][j] = new Tile();
+			}
+		}
 	}
 
 	public Board(int w, int h){
 		if(w<10&&h<100&&w>5&&h>10){
 			width = w;
 			height = h;
-			board = new Tile[w][h];
+			board = new Tile[h+5][w];
+		}
+		for(int i = 0; i<board.length; i++){
+			for(int j = 0; j<board[0].length; j++){
+				board[i][j] = new Tile();
+			}
 		}
 	}
 
-	public Tile getTile(int i, int j){
-		return board[i][j];
+	public Board(int w, int h, Tile[][] b){
+		board = b;
+		height = h;
+		width = w;
 	}
-	
+
 	public int getWidth(){
 		return width;
 	}
@@ -41,25 +50,31 @@ public class Board {
 
 	public String toString(){
 		String output = "";
-		for(Tile[] tileArray: board){
-			for(Tile t: tileArray){
-				output+=t.toString() + "\t";
+		for(int i = board.length-5; i>=0; i--){
+			for(int j = 0; j<board[0].length; j++){
+				output+=board[i][j].toString() + "\t";
 			}
-			output += "\n";
+			output+="\n";
 		}
+
 		return output;
 	}
-	
+
 	public boolean canPlay(){
-		for(Tile t: board[height-1]){
-			if(t.isEmpty()==false){
+		for(Tile t: board[height]){
+			if(!t.isEmpty()){
 				return false;
 			}
 		}
+
 		return true;
 	}
 
-	public void setTile(int i, int j, Tile tile) {
-		board[i][j] = tile;
+	public Tile getTile(int x, int y){
+		return board[y][x];
+	}
+
+	public Board clone(){
+		return new Board(width, height, board);
 	}
 }
